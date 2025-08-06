@@ -17,7 +17,7 @@ const SignIn = () => {
             </button>
             <SignUpForm />
         </div>
-    );
+    ); 
 }
 
 export default SignIn
