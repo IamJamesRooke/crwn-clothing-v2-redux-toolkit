@@ -3,7 +3,6 @@ import { useState } from 'react';
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
 
-
 import { 
     signInWithGooglePopup,
     createUserDocumentFromAuth,
@@ -38,8 +37,12 @@ const SignInForm = () => {
         try {
             const response = await signInAuthUserWithEmailAndPassword(email, password);
             resetFormFields();
-            console.log(response);
-        } catch(error) {}
+        } catch(error) {
+            if(error.code === 'auth/invalid-credential') {
+                alert('Incorrect credentials.');
+            }
+            console.log(error);
+        }
     };
 
     const handleChange = (event) => {
@@ -74,7 +77,7 @@ const SignInForm = () => {
 
                 <div className='buttons-container'>
                     <Button type="submit">Sign In</Button>
-                    <Button buttonType='google' onClick={signInWithGoogle}>Google Sign In</Button>
+                    <Button type='button' buttonType='google' onClick={signInWithGoogle}>Google Sign In</Button>
                 </div>
             </form>
         </div>
