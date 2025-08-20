@@ -10,9 +10,7 @@ import { CategoryContainer, Title } from "./category.styles.jsx";
 
 const Category = () => {
   const { category } = useParams();
-  
   const categoriesMap = useSelector(selectCategoriesMap);
-
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
