@@ -60,14 +60,15 @@ export const addCollectionAndDocuments = async (
   console.log('done')
 };
 
-export const getCategoriesAndDocuments = async () => {
-  const collectionRef = collection(db, 'categories');
+export const getCategoriesAndDocuments = async (collectionKey = 'categories') => {
+  const collectionRef = collection(db, collectionKey);
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
-  return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
-
-  return categoryMap;
+  const categoriesArray = querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+  
+  console.log('Firebase data:', categoriesArray);
+  return categoriesArray;
 };
 
 export const createUserDocumentFromAuth = async (
