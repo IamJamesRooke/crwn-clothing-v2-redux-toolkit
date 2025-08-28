@@ -1,8 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const BackgroundImage = styled.div.withConfig({
-  shouldForwardProp: (prop) => prop !== 'imageUrl',
-})`
+export const BackgroundImage = styled.div`
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -27,6 +25,7 @@ export const Body = styled.div`
     margin: 0 6px 0;
     font-size: 22px;
     color: #4a4a4a;
+    text-transform: uppercase;
   }
 
   p {
@@ -46,6 +45,14 @@ export const DirectoryItemContainer = styled.div`
   margin: 0 7.5px 15px;
   overflow: hidden;
 
+  &:first-child {
+    margin-right: 7.5px;
+  }
+
+  &:last-child {
+    margin-left: 7.5px;
+  }
+
   &:hover {
     cursor: pointer;
 
@@ -57,17 +64,5 @@ export const DirectoryItemContainer = styled.div`
     ${Body} {
       opacity: 0.9;
     }
-  }
-
-  &.large {
-    height: 380px;
-  }
-
-  &:first-child {
-    margin-right: 7.5px;
-  }
-
-  &:last-child {
-    margin-left: 7.5px;
   }
 `;
